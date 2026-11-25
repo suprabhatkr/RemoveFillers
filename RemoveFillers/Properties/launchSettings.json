@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "RemoveFillers (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "RemoveFillers (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<UserControl x:Class="RemoveFillers.Controls.TimelineView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Background="#1A1B23">
+        <Grid.RowDefinitions><RowDefinition Height="52" /><RowDefinition Height="32" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+        <Border BorderBrush="#30313C" BorderThickness="0,1,0,1">
+            <Grid Padding="18,0">
+                <StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Center">
+                    <TextBlock Text="Timeline" FontWeight="SemiBold" Margin="0,0,14,0" VerticalAlignment="Center" />
+                    <Button x:Name="UndoButton" Style="{StaticResource ToolButtonStyle}" ToolTipService.ToolTip="Undo" AutomationProperties.Name="Undo"><FontIcon Glyph="&#xE7A7;" FontSize="15" /></Button>
+                    <Button x:Name="RedoButton" Style="{StaticResource ToolButtonStyle}" ToolTipService.ToolTip="Redo" AutomationProperties.Name="Redo"><FontIcon Glyph="&#xE7A6;" FontSize="15" /></Button>
+                    <Rectangle Width="1" Height="22" Fill="#3B3C48" Margin="6,0" />
+                    <Button x:Name="SplitButton" Style="{StaticResource ToolButtonStyle}" ToolTipService.ToolTip="Split selected clip at the playhead" AutomationProperties.Name="Split selected clip at playhead"><FontIcon Glyph="&#xE8C6;" FontSize="15" /></Button>
+                    <Button x:Name="DeleteButton" Style="{StaticResource ToolButtonStyle}" ToolTipService.ToolTip="Delete selected clip" AutomationProperties.Name="Delete selected clip"><FontIcon Glyph="&#xE74D;" FontSize="15" /></Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock Text="Zoom" FontSize="12" Foreground="{StaticResource MutedTextBrush}" VerticalAlignment="Center" />
+                    <Slider Width="110" Minimum="0" Maximum="100" Value="50" IsEnabled="False" />
+                    <FontIcon Glyph="&#xE71E;" FontSize="14" Foreground="{StaticResource MutedTextBrush}" VerticalAlignment="Center" />
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Slider x:Name="PositionSlider" Grid.Row="1" Margin="105,0,24,0" Minimum="0" Maximum="1" StepFrequency="1" AutomationProperties.Name="Timeline playhead in seconds" />
+        <Grid Grid.Row="2" Padding="18,12,24,16" ColumnSpacing="12">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="75" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+            <TextBlock Text="Clips" FontSize="12" Foreground="{StaticResource MutedTextBrush}" VerticalAlignment="Center" />
+            <Grid Grid.Column="1" RowSpacing="6">
+                <Grid.RowDefinitions><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                <ListView x:Name="TimelineList" DisplayMemberPath="DisplayName" SelectionMode="Single" AutomationProperties.Name="Timeline clips in playback order">
+                    <ListView.ItemsPanel><ItemsPanelTemplate><StackPanel Orientation="Horizontal" /></ItemsPanelTemplate></ListView.ItemsPanel>
+                </ListView>
+                <TextBlock x:Name="StatusText" Grid.Row="1" Text="Select media and add it to the timeline." FontSize="12" Foreground="{StaticResource MutedTextBrush}" TextWrapping="Wrap" />
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

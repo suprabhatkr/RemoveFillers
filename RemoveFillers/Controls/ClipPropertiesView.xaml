@@ -1,0 +1,23 @@
+<UserControl x:Class="RemoveFillers.Controls.ClipPropertiesView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Border Background="{StaticResource PanelBrush}">
+        <StackPanel Padding="18,20" Spacing="18">
+            <StackPanel Spacing="4"><TextBlock Text="Properties" FontSize="19" FontWeight="SemiBold" /><TextBlock Text="Fine-tune your selection" FontSize="12" Foreground="{StaticResource MutedTextBrush}" /></StackPanel>
+            <Border Background="#24252F" CornerRadius="8" Padding="15,20">
+                <StackPanel Spacing="9">
+                    <FontIcon Glyph="&#xE8A7;" FontSize="22" Foreground="#A598DB" HorizontalAlignment="Center" />
+                    <TextBlock x:Name="SelectionTitle" Text="Nothing selected" FontWeight="SemiBold" TextAlignment="Center" TextWrapping="Wrap" />
+                    <TextBlock x:Name="SelectionDetails" Text="Select a clip on the timeline to see its settings." TextAlignment="Center" TextWrapping="Wrap" FontSize="12" Foreground="{StaticResource MutedTextBrush}" />
+                </StackPanel>
+            </Border>
+            <TextBlock Text="QUICK ADJUSTMENTS (SIMULATED)" FontSize="10" CharacterSpacing="90" FontWeight="SemiBold" Foreground="{StaticResource MutedTextBrush}" />
+            <StackPanel Spacing="8">
+                <TextBlock x:Name="VolumeText" Text="Volume" FontSize="12" />
+                <Slider x:Name="VolumeSlider" Minimum="0" Maximum="100" Value="100" StepFrequency="1" AutomationProperties.Name="Clip volume" />
+                <TextBlock x:Name="OpacityText" Text="Opacity" FontSize="12" />
+                <Slider x:Name="OpacitySlider" Minimum="0" Maximum="100" Value="100" StepFrequency="1" AutomationProperties.Name="Clip opacity" />
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</UserControl>
